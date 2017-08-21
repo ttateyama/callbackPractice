@@ -97,7 +97,9 @@ uniq(names, function(uniqArr){
 
     //Code Here
     var each = function(names, cb) {
-      cb()
+      for(var i = 0; i < names.length; i++) {
+        cb(names[i], i);
+      }
     }
 
 each(names, function(item, indice){
@@ -110,6 +112,9 @@ each(names, function(item, indice){
 // and returns that user.
 
  //Code Here
+ var getUserById = function(arr, id, cb) {
+  cb(arr.filter(user => user.id === id)[0])
+ }
 
 var users = [
   {
