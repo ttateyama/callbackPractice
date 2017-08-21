@@ -24,6 +24,9 @@ and what you should write is the sayHi function that makes the code above work,
 
   // Code Here
 
+  var first = function(arr, cb) {
+    cb(arr[0]);
+  }
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -35,6 +38,9 @@ first(names, function(firstName){
 // 2. Write a function called last which returns the last item of the array using a callback function.
 
   //Code Here
+  var last = function(arr, cb) {
+    cb(arr[arr.length-1])
+  }
 
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -45,7 +51,9 @@ last(names, function(lastName){
 // 3. Write a function called multiply that multiplies two numbers using a callback function.
 
   //Code Here
-
+  var multiply = function(num1, num2, cb) {
+    cb(num1 * num2)
+  }
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -56,7 +64,10 @@ multiply(4, 3, function(answer){
 // 4. Write a function called contains that checks if a name exists in an array. 
 // If it does, return true using the callback, if not return false.
 
-  //Code Here 
+  //Code Here
+  var contains = function(names, name, cb) {
+    cb(names.includes(name))
+  }
 
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -68,20 +79,26 @@ contains(names, 'Colt', function(result){
 
 
 
-// 5. Write a function called uniq that takes the names array and removes all duplicates and returns 
-// the callback function with the array of unique names.
+// 5. Write a function called uniq that takes the names array and removes all duplicates and returns the callback function with the array of unique names.
 
     //Code Here
+    var uniq = function(names, cb) {
+      cb(names.filter( function(name, index, inputArray) {
+        return inputArray.indexOf(name) == index;
+      }))
+    }
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
 
 
-// 6. Write a function called each that takes in an array of names. For each item, use a callback 
-// function to return the indices and item.
+// 6. Write a function called each that takes in an array of names. For each item, use a callback function to return the indices and item.
 
-    //Code Here 
+    //Code Here
+    var each = function(names, cb) {
+      cb()
+    }
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
